@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="wordSize" type="Integer" access="public" default="12"/>
+    <aura:handler name="SelectedModeEvent" event="c:SelectedModeEvent" action="{!c.handleSelectedModeEvent}"/>
+    <aura:handler name="SelectedWordEvent" event="c:SelectedWordEvent" action="{!c.handleSelectedWordEvent}"/>
+    <aura:attribute name="showWords" type="Boolean" default="false" access="private"/>
+    
+    <div class="boardPanel divs">
+        <c:BoardPanel></c:BoardPanel>
+    </div>
+    <aura:if isTrue="{!v.showWords}"> 
+        <div class="board divs">
+            <c:Board numberOfWords="{!v.wordSize}"></c:Board>
+        </div>   
+    </aura:if>  
+</aura:component>	

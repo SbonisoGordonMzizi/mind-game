@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="gameSelectedMode" type="String" access="private"/>
+    <aura:attribute name="gameModes" type="List" default="[
+    {'label': 'Easy', 'value': 'easy'},
+    {'label': 'Medium', 'value': 'medium'},
+    {'label': 'Hard', 'value': 'hard'},
+    ]"/>
+    <aura:registerEvent name="SelectedModeEvent" type="c:SelectedModeEvent"/>
+   
+    <lightning:card title="Mind Game">
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem  size="3" padding="around-small" >
+                <lightning:button  variant="brand" stretch="true" label="Start Game" title="Start Game" onclick="{!c.gameStart}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <lightning:combobox aura:id="modes" variant="label-hidden" name="GameMode" label="GameMode" value="mode" placeholder="mode" options="{!v.gameModes}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem  size="3" padding="around-small">
+                <lightning:button variant="Neutral" stretch="true" label="Restart Game" title="Restart Game" onclick="{!c.gameRestart}"/>
+            </lightning:layoutItem>
+    </lightning:layout>
+    </lightning:card>
+</aura:component>	
